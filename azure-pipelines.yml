@@ -24,6 +24,6 @@ stages:
       displayName: Build an image
       inputs:
         command: build
-        dockerfile: '$(Build.SourcesDirectory)/WebApplication18/WebApplication18/Dockerfile'
+        dockerfile: '$(Build.SourcesDirectory)/WebApplication18/Dockerfile'
         tags: |
           $(tag)
