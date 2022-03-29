@@ -25,6 +25,8 @@ stages:
       inputs:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/WebApplication18/Dockerfile'
+        buildContext: '$(Build.SourcesDirectory)'
+        repository: $(DOCKER_REPOSITORY_NAME)
         tags: |
           $(tag)
 
@@ -35,6 +37,7 @@ stages:
         imageSource: 'imagename'
         sourceImageName: $(DOCKER_REPOSITORY_NAME)
         sourceImageTag: $(Build.BuildId)
+        pushTag: latest
         repositoryName: $(DOCKER_REPOSITORY_NAME)
         autoCreateRepository: true
         removeDockerImage: true
