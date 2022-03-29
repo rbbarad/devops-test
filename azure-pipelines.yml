@@ -27,3 +27,14 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/WebApplication18/Dockerfile'
         tags: |
           $(tag)
+
+    - task: ECRPushImage@1
+      inputs:
+        awsCredentials: 'Default'
+        regionName: 'us-west-2'
+        imageSource: 'imagename'
+        sourceImageName: $(DOCKER_REPOSITORY_NAME)
+        sourceImageTag: $(Build.BuildId)
+        repositoryName: $(DOCKER_REPOSITORY_NAME)
+        autoCreateRepository: true
+        removeDockerImage: true
