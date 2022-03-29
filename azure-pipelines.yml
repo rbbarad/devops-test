@@ -25,6 +25,7 @@ stages:
       inputs:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/WebApplication18/Dockerfile'
+        repository: $(DOCKER_REPOSITORY_NAME)
         tags: |
           $(tag)
 
